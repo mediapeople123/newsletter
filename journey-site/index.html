@@ -209,8 +209,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
       <input id="c-name" name="name" type="text" autocomplete="name" required style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 17px Inter, sans-serif; width: 100%">
       <label for="c-email" style="font-size: 14px; color: var(--muted)">Your email</label>
       <input id="c-email" name="email" type="email" autocomplete="email" required style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 17px Inter, sans-serif; width: 100%">
-      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="request_event" value="Yes" type="checkbox" style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>I&rsquo;d like to activate my youth in digital evangelism at an event.</span></label>
-      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 0; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="request_info" value="Yes" type="checkbox" style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>I&rsquo;d like to receive more information about it.</span></label>
+      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="request" value="Wants to know how to activate their youth at their event" type="checkbox" required style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>I&rsquo;d like to know more about activating my youth at our event.</span></label>
       <p class="contact-error" role="alert" style="margin: 0; font-size: 14px; color: #ffb4a8"></p>
       <button type="submit" style="height: 52px; border: 0; border-radius: 10px; background: #FFC94D; color: #151515; font: 600 17px Inter, sans-serif; cursor: pointer">Send</button>
       <p style="margin: 0; font-size: 13px; color: var(--muted2)">I&rsquo;ll only use your details to reply to you. See the <a href="privacy.html">privacy policy</a>.</p>
@@ -255,7 +254,7 @@ d.addEventListener('click',function(e){if(e.target===d)d.close();});
 f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
 if(!f.name.value.trim()){err.textContent='Please add your name.';return;}
 if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){err.textContent='Please enter a valid email address.';return;}
-if(!f.request_event.checked&&!f.request_info.checked){err.textContent='Please tick at least one box so I know what you would like.';return;}
+if(!f.request.checked){err.textContent='Please tick the box so I know what you would like.';return;}
 var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';
 fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
 .then(function(r){if(!r.ok)throw 0;f.hidden=true;done.hidden=false;})
