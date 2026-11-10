@@ -27,7 +27,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 <script>try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 </head>
 <body>
-<script>(function(){var b=document.querySelector('.theme-toggle'),l=b.querySelector('.theme-label'),r=document.documentElement;function s(){l.textContent=r.getAttribute('data-theme')==='light'?'Dark':'Bright';}s();b.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='light'?'dark':'light';if(n==='light')r.setAttribute('data-theme','light');else r.removeAttribute('data-theme');try{localStorage.setItem('theme',n);}catch(e){}s();});})();</script>
+<script>document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('.theme-toggle'),l=b.querySelector('.theme-label'),r=document.documentElement;function s(){l.textContent=r.getAttribute('data-theme')==='light'?'Dark':'Bright';}s();b.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='light'?'dark':'light';if(n==='light')r.setAttribute('data-theme','light');else r.removeAttribute('data-theme');try{localStorage.setItem('theme',n);}catch(e){}s();});});</script>
 <div style="min-height: 100vh; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; overflow-x: hidden">
 
   <header style="max-width: 1120px; margin: 0 auto; padding: 28px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
