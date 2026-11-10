@@ -256,7 +256,7 @@ d.addEventListener('click',function(e){if(e.target===d)d.close();});
 f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
 if(!f.name.value.trim()){err.textContent='Please add your name.';return;}
 if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){err.textContent='Please enter a valid email address.';return;}
-if(!f.request.checked){err.textContent='Please tick the box so I know what you would like.';return;}
+if(!f.request.checked){err.textContent='Please tick the box to send your request.';return;}
 var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';
 fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
 .then(function(r){if(!r.ok)throw 0;f.hidden=true;done.hidden=false;})
