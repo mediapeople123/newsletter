@@ -23,6 +23,9 @@ body{background:var(--bg)!important}a{color:var(--text)}a:hover{color:var(--stro
 .hero-top{display:none}
 @media (max-width:700px){.sec-photo{max-width:none!important}.sec-photo img{aspect-ratio:1 / 1.05!important}}
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}.js .reveal.in{opacity:1;transform:none}
+.scroll-hint{display:none}
+@media (max-width:700px){.scroll-hint{display:block}}
+
 @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:700px){.sp-face{width:150px!important}.sp-street{width:200px!important;margin-left:-24px!important}}
 @media (max-width:700px){.hero-art{display:none!important}.hero-top{display:block}#top{padding-top:8px!important}}
@@ -143,6 +146,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
         <figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px; background: #000000b3; color: #ffffff; font-size: 12px; font-weight: 500">Catalyze · 2026</figcaption>
       </figure>
     </div>
+    <p class="scroll-hint" style="margin: -4px 0 0; font-size: 13px; color: var(--muted2); text-align: center">← scroll the photos →</p>
   </section>
 
   <!-- 4. ON THE GROUND: event photos -->
@@ -180,6 +184,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
         <figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px; background: #000000b3; color: #ffffff; font-size: 12px; font-weight: 500">Yous · 2026</figcaption>
       </figure>
     </div>
+    <p class="scroll-hint" style="margin: -4px 0 0; font-size: 13px; color: var(--muted2); text-align: center">← scroll the photos →</p>
   </section>
 
   <!-- 5. WHAT LANDS IN YOUR INBOX -->
