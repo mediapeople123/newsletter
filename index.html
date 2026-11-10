@@ -21,7 +21,7 @@ html[data-theme="light"]{--bg:#faf8f3;--text:#151515;--strong:#151515;--body:#3d
 body{background:var(--bg)!important}a{color:var(--text)}a:hover{color:var(--strong)}
 @media (max-width:520px){header a[href="#"]{display:none}}
 .hero-face{display:none}
-@media (max-width:700px){.hero-art{display:none!important}.hero-face{display:block}}
+@media (max-width:700px){.hero-art{display:none!important}.hero-face{display:flex!important}}
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;width:44px;padding:0;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
 html[data-theme="light"] .ml-error{color:#b3261e!important}
 
@@ -41,10 +41,10 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
   <section id="top" style="max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; display: flex; flex-direction: column; padding-top: 72px; padding-bottom: 40px; gap: 28px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px">
     <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-    <img class="hero-face" src="images/luca-face.jpg" alt="Luca Caruso" width="76" height="76" style="width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 3px solid #FFC94D; margin-bottom: -8px">
     <h1 style="margin: 0; max-width: 980px; font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: clamp(2.6rem, 6.4vw, 5.4rem); line-height: 1.04; letter-spacing: -0.03em">A New Wave of <span style="background: #FFC94D; color: #151515; padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone">Evangelism.</span></h1>
     <p style="margin: 0; max-width: 680px; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; color: var(--body)">For the past 10 years, I&rsquo;ve been involved in missions and media, finding new ways to share the Gospel with people.</p>
     <p style="margin: 0; max-width: 680px; font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.5; color: var(--body)">In recent months, God has been opening some incredible doors. I&rsquo;m excited to share the stories, results, strategies and lessons as we explore what&rsquo;s possible through digital evangelism.</p>
+    <div class="hero-face" style="align-items: center; gap: 12px; margin-top: -10px"><img src="images/luca-face.jpg" alt="" width="48" height="48" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover"><span style="font-family: Caveat, cursive; font-size: 30px; line-height: 1; color: var(--strong); transform: rotate(-3deg)">Luca</span></div>
 
     <div style="max-width: 640px">
     <form class="ml-form" novalidate style="display: flex; flex-direction: column; gap: 14px">
