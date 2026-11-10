@@ -29,6 +29,8 @@ body{background:var(--bg)!important}a{color:var(--text)}a:hover{color:var(--stro
 @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:700px){.sp-face{width:150px!important}.sp-street{width:200px!important;margin-left:-24px!important}}
 @media (max-width:700px){.hero-art{display:none!important}.hero-top{display:block}#top{padding-top:8px!important}}
+#contact-dialog::backdrop{background:#000000b3}
+html[data-theme="light"] .contact-error{color:#b3261e!important}
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;width:44px;padding:0;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
 html[data-theme="light"] .ml-error{color:#b3261e!important}
 
@@ -156,6 +158,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
     </div>
     <p style="margin: 0; max-width: 720px; font-size: 17px; line-height: 1.6; color: var(--body)">Over the past six months, God has been using one of the projects to activate young people at youth events, empowering them to share their faith on social media &mdash; many for the very first time.</p>
     <p style="margin: 0; max-width: 720px; font-size: 17px; line-height: 1.6; color: var(--body)">On October 31st, over 300 young people shared their faith on their own profiles, generating more than 650,000 views in less than 24 hours!</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; max-width: 720px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line2)"><p style="margin: 0; flex: 1 1 280px; font-size: 16px; line-height: 1.5; color: var(--body)">Know a church or ministry that would love to activate their youth in digital evangelism?</p><button type="button" class="open-contact" style="flex: 0 0 auto; min-height: 48px; padding: 0 20px; border: 0; border-radius: 10px; background: #FFC94D; color: #151515; font: 600 16px Inter, sans-serif; cursor: pointer">Get in touch &rarr;</button></div>
     <div style="display: flex; gap: 16px; align-items: flex-start; overflow-x: auto; padding: 8px 4px 16px; justify-content: flex-start">
       <figure style="margin: 0 0 0; flex: 0 0 170px; height: 228px; border-radius: 20px; position: relative; overflow: hidden"><img src="images/youth-selfie-2026.jpg" alt="Luca with a room full of young people at a media missions workshop" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px; background: #000000b3; color: #ffffff; font-size: 12px; font-weight: 500">Media missions workshops</figcaption></figure>
       <figure style="margin: 28px 0 0; flex: 0 0 170px; height: 228px; border-radius: 20px; position: relative; overflow: hidden">
@@ -193,6 +196,27 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
     </div>
   </section>
 
+<dialog id="contact-dialog" aria-labelledby="contact-title" style="width: min(520px, calc(100% - 32px)); max-height: calc(100% - 32px); box-sizing: border-box; padding: 0; border: 1px solid var(--line2); border-radius: 22px; background: var(--surface); color: var(--text)">
+  <div style="padding: 28px 24px 26px; display: flex; flex-direction: column; gap: 16px; font-family: Inter, sans-serif">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+      <h2 id="contact-title" style="margin: 0; font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1">Bring the wave to your youth</h2>
+      <button type="button" class="close-contact" aria-label="Close" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line2); background: transparent; color: var(--text); font-size: 20px; line-height: 1; cursor: pointer">&times;</button>
+    </div>
+    <form name="youth-events" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" novalidate style="display: flex; flex-direction: column; gap: 12px">
+      <input type="hidden" name="form-name" value="youth-events">
+      <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+      <label for="c-name" style="font-size: 14px; color: var(--muted)">Your name</label>
+      <input id="c-name" name="name" type="text" autocomplete="name" required style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 17px Inter, sans-serif; width: 100%">
+      <label for="c-email" style="font-size: 14px; color: var(--muted)">Your email</label>
+      <input id="c-email" name="email" type="email" autocomplete="email" required style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 17px Inter, sans-serif; width: 100%">
+      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="request" value="Activate my youth in digital evangelism through an event" type="checkbox" required style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>I&rsquo;d like to activate my youth in digital evangelism through an event.</span></label>
+      <p class="contact-error" role="alert" style="margin: 0; font-size: 14px; color: #ffb4a8"></p>
+      <button type="submit" style="height: 52px; border: 0; border-radius: 10px; background: #FFC94D; color: #151515; font: 600 17px Inter, sans-serif; cursor: pointer">Send</button>
+      <p style="margin: 0; font-size: 13px; color: var(--muted2)">I&rsquo;ll only use your details to reply to you. See the <a href="privacy.html">privacy policy</a>.</p>
+    </form>
+    <div class="contact-done" hidden><p style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: 24px">Thank you!</p><p style="margin: 0; font-size: 16px; line-height: 1.5; color: var(--body)">I&rsquo;ll be in touch soon.</p></div>
+  </div>
+</dialog>
   <footer style="max-width: 1120px; margin: 0 auto; padding: 24px 24px 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--muted2); border-top: 1px solid var(--line)">
     <span>© 2026 Luca Caruso</span>
     <div style="display: flex; gap: 20px">
@@ -223,5 +247,17 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 })();
 </script>
 <script>(function(){var els=document.querySelectorAll(".reveal");if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{threshold:0.15});els.forEach(function(e){io.observe(e)});})();</script>
+<script>(function(){var d=document.getElementById('contact-dialog');if(!d)return;var f=d.querySelector('.contact-form'),err=d.querySelector('.contact-error'),done=d.querySelector('.contact-done');
+document.querySelectorAll('.open-contact').forEach(function(b){b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');var n=d.querySelector('#c-name');if(n)n.focus();});});
+d.querySelector('.close-contact').addEventListener('click',function(){d.close();});
+d.addEventListener('click',function(e){if(e.target===d)d.close();});
+f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
+if(!f.name.value.trim()){err.textContent='Please add your name.';return;}
+if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){err.textContent='Please enter a valid email address.';return;}
+if(!f.request.checked){err.textContent='Please tick the box so I know what you are asking for.';return;}
+var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+.then(function(r){if(!r.ok)throw 0;f.hidden=true;done.hidden=false;})
+.catch(function(){err.textContent='Something went wrong. Please try again in a moment.';b.disabled=false;b.textContent='Send';});});})();</script>
 </body>
 </html>
