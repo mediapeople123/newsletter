@@ -20,7 +20,7 @@ input::placeholder{color:#8a8a8a}
 html[data-theme="light"]{--bg:#faf8f3;--text:#151515;--strong:#151515;--body:#3d3d3d;--muted:#5a5a5a;--muted2:#6b6b6b;--surface:#efebe3;--surface2:#e4dfd5;--line:#d8d2c6;--line2:#bdb6a8;color-scheme:light}
 body{background:var(--bg)!important}a{color:var(--text)}a:hover{color:var(--strong)}
 @media (max-width:520px){header a[href="#"]{display:none}}
-.theme-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;width:44px;padding:0;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
 html[data-theme="light"] .ml-error{color:#b3261e!important}
 
 </style>
@@ -32,7 +32,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 
   <header style="max-width: 1120px; margin: 0 auto; padding: 28px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
     <a href="#top" style="font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: -0.01em">Luca Caruso.</a>
-    <div style="display: flex; align-items: center; gap: 16px"><a href="https://www.instagram.com/lucaa_carusoo" target="_blank" rel="noopener" style="font-size: 15px; color: var(--muted)">Instagram</a><a href="https://www.tiktok.com/@luca.caruso" target="_blank" rel="noopener" style="font-size: 15px; color: var(--muted)">TikTok</a><a href="#" style="font-size: 15px; color: var(--muted)">YouTube</a><button type="button" class="theme-toggle" aria-label="Switch between dark and bright mode"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="theme-label">Bright</span></button></div>
+    <div style="display: flex; align-items: center; gap: 16px"><a href="https://www.instagram.com/lucaa_carusoo" target="_blank" rel="noopener" style="font-size: 15px; color: var(--muted)">Instagram</a><button type="button" class="theme-toggle" aria-label="Switch between dark and bright mode"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span class="theme-label sr">Bright</span></button></div>
   </header>
 
   <!-- 1. HERO: what I'm building + invitation -->
@@ -292,7 +292,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
   <footer style="max-width: 1120px; margin: 0 auto; padding: 24px 24px 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--muted2); border-top: 1px solid var(--line)">
     <span>© 2026 Luca Caruso</span>
     <div style="display: flex; gap: 20px">
-      <a href="https://www.instagram.com/lucaa_carusoo" target="_blank" rel="noopener" style="color: var(--muted)">Instagram</a><a href="https://www.tiktok.com/@luca.caruso" target="_blank" rel="noopener" style="color: var(--muted)">TikTok</a><a href="#" style="color: var(--muted)">YouTube</a>
+      <a href="https://www.instagram.com/lucaa_carusoo" target="_blank" rel="noopener" style="color: var(--muted)">Instagram</a>
       <a href="privacy.html" style="color: var(--muted)">Privacy</a>
     </div>
   </footer>
