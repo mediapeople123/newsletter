@@ -21,14 +21,16 @@ html[data-theme="light"]{--bg:#faf8f3;--text:#151515;--strong:#151515;--body:#3d
 body{background:var(--bg)!important}a{color:var(--text)}a:hover{color:var(--strong)}
 @media (max-width:520px){header a[href="#"]{display:none}}
 .hero-top{display:none}
-@media (max-width:700px){.sec-photo{width:230px!important}}
+@media (max-width:700px){.sec-photo{max-width:none!important}.sec-photo img{aspect-ratio:1 / 1.05!important}}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
 @media (max-width:700px){.sp-face{width:150px!important}.sp-street{width:200px!important;margin-left:-24px!important}}
 @media (max-width:700px){.hero-art{display:none!important}.hero-top{display:block}#top{padding-top:8px!important}}
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;width:44px;padding:0;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer}
 html[data-theme="light"] .ml-error{color:#b3261e!important}
 
 </style>
-<script>try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 </head>
 <body>
 <script>document.addEventListener('DOMContentLoaded',function(){var b=document.querySelector('.theme-toggle'),l=b.querySelector('.theme-label'),r=document.documentElement;function s(){l.textContent=r.getAttribute('data-theme')==='light'?'Dark':'Bright';}s();b.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='light'?'dark':'light';if(n==='light')r.setAttribute('data-theme','light');else r.removeAttribute('data-theme');try{localStorage.setItem('theme',n);}catch(e){}s();});});</script>
@@ -106,7 +108,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 
   <!-- 3. WHY NOW: Catalyze Lab -->
   <section aria-label="Why now" style="max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; display: flex; flex-direction: column; padding-top: 48px; padding-bottom: 48px; gap: 32px">
-    <figure class="sec-photo" style="margin: 8px 0 0 6px; width: 280px; transform: rotate(-3deg); padding: 5px 5px 7px; box-sizing: border-box; background: #f4f1ea; border-radius: 18px; box-shadow: 0 18px 44px #00000080; position: relative"><img src="images/nashville-2026.jpg" alt="Luca in Nashville for Catalyze Lab" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 55%; border-radius: 13px"><figcaption style="position: absolute; left: 14px; bottom: 16px; padding: 4px 10px; border-radius: 999px; background: #000000b3; color: #ffffff; font-size: 12px; font-weight: 500">Nashville · 2026</figcaption></figure>
+    <figure class="sec-photo reveal" style="margin: 0; width: 100%; max-width: 440px; position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 18px 40px #00000059"><img src="images/nashville-2026.jpg" alt="Luca in Nashville for Catalyze Lab" loading="lazy" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"><figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 4px 10px; border-radius: 999px; background: #000000b3; color: #ffffff; font-size: 12px; font-weight: 500">Nashville · 2026</figcaption></figure>
     <div style="display: flex; flex-direction: column; gap: 12px">
       <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted2)">Why now</p>
       <h2 style="margin: 0; font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 820px">Then the doors <span style="background: #FFC94D; color: #151515; padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone">opened.</span></h2>
@@ -145,7 +147,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 
   <!-- 4. ON THE GROUND: event photos -->
   <section aria-label="Events" style="max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; display: flex; flex-direction: column; padding-top: 48px; padding-bottom: 64px; gap: 24px">
-    <figure class="sec-photo" style="margin: 8px 0 0 6px; width: 280px; transform: rotate(3deg); padding: 5px 5px 7px; box-sizing: border-box; background: #f4f1ea; border-radius: 18px; box-shadow: 0 18px 44px #00000080; position: relative"><img src="images/youth-selfie-2026.jpg" alt="Luca with a room full of young people at a youth event" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 45%; border-radius: 13px"></figure>
+    <figure class="sec-photo reveal" style="margin: 0; width: 100%; max-width: 440px; position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 18px 40px #00000059"><img src="images/youth-selfie-2026.jpg" alt="Luca with a room full of young people at a youth event" loading="lazy" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover"></figure>
     <div style="display: flex; flex-direction: column; gap: 12px">
       <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted2)">Lately</p>
       <h2 style="margin: 0; font-family: 'Bricolage Grotesque', Inter, sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 820px">Where I have been <span style="background: #FFC94D; color: #151515; padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone">lately.</span></h2>
@@ -250,5 +252,6 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
   });
 })();
 </script>
+<script>(function(){var els=document.querySelectorAll(".reveal");if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{threshold:0.15});els.forEach(function(e){io.observe(e)});})();</script>
 </body>
 </html>
