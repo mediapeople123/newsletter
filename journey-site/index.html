@@ -224,7 +224,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
       <input id="c-email" name="email" type="email" autocomplete="email" required style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 17px Inter, sans-serif; width: 100%">
       <label for="c-msg" style="font-size: 14px; color: var(--muted)">Tell me more <span style="color: var(--muted2)">(optional)</span></label>
       <textarea id="c-msg" name="message" rows="4" placeholder="Your church or ministry, the event, dates, how many young people…" style="box-sizing: border-box; padding: 12px 16px; border-radius: 10px; border: 1px solid #3a3a3a; background: #ffffff; color: #151515; font: 16px/1.45 Inter, sans-serif; width: 100%; resize: vertical"></textarea>
-      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="request" value="Wants to know how to activate their youth at their event" type="checkbox" required style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>I&rsquo;d like to know more about activating my youth at our event.</span></label>
+      <label style="display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--body); cursor: pointer"><input name="newsletter" value="yes" type="checkbox" checked style="width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0"><span>Also send me stories and updates from Luca&rsquo;s digital evangelism journey.</span></label>
       <p class="contact-error" role="alert" style="margin: 0; font-size: 14px; color: #ffb4a8"></p>
       <button type="submit" style="height: 52px; border: 0; border-radius: 10px; background: #FFC94D; color: #151515; font: 600 17px Inter, sans-serif; cursor: pointer">Send</button>
       <p style="margin: 0; font-size: 13px; color: var(--muted2)">I&rsquo;ll only use your details to reply to you. See the <a href="privacy.html">privacy policy</a>.</p>
@@ -263,16 +263,21 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
 </script>
 <script>(function(){var els=document.querySelectorAll(".reveal");if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{threshold:0.15});els.forEach(function(e){io.observe(e)});})();</script>
 <script>(function(){var d=document.getElementById('contact-dialog');if(!d)return;var f=d.querySelector('.contact-form'),err=d.querySelector('.contact-error'),done=d.querySelector('.contact-done');
+var YOUTH='https://assets.mailerlite.com/jsonp/1843925/forms/203851715432155025/subscribe',NEWS='https://assets.mailerlite.com/jsonp/1843925/forms/203743144237336379/subscribe';
 document.querySelectorAll('.open-contact').forEach(function(b){b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');var n=d.querySelector('#c-name');if(n)n.focus();});});
 d.querySelector('.close-contact').addEventListener('click',function(){d.close();});
 d.addEventListener('click',function(e){if(e.target===d)d.close();});
+function ml(url,name,email,msg){var m=new FormData();m.append('fields[name]',name);m.append('fields[email]',email);if(msg)m.append('fields[message]',msg);m.append('ml-submit','1');m.append('anticsrf','true');
+return fetch(url,{method:'POST',body:m}).then(function(r){return r.json();}).then(function(j){return !!(j&&j.success);}).catch(function(){return false;});}
 f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
-if(!f.name.value.trim()){err.textContent='Please add your name.';return;}
-if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){err.textContent='Please enter a valid email address.';return;}
-if(!f.request.checked){err.textContent='Please tick the box to send your request.';return;}
+var name=f.name.value.trim(),email=f.email.value.trim(),msg=f.message.value.trim();
+if(!name){err.textContent='Please add your name.';return;}
+if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Please enter a valid email address.';return;}
 var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-.then(function(r){if(!r.ok)throw 0;f.hidden=true;done.hidden=false;})
+var net=fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).then(function(r){return r.ok;}).catch(function(){return false;});
+var lead=ml(YOUTH,name,email,msg);
+var news=f.newsletter.checked?ml(NEWS,name,email):Promise.resolve(true);
+Promise.all([net,lead,news]).then(function(r){if(r[0]||r[1]){f.hidden=true;done.hidden=false;}else{throw 0;}})
 .catch(function(){err.textContent='Something went wrong. Please try again in a moment.';b.disabled=false;b.textContent='Send';});});})();</script>
 </body>
 </html>
