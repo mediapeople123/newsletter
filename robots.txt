@@ -1,0 +1,21 @@
+# Search engines and AI assistants are welcome to read and cite this site.
+User-agent: *
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /emails/
+Disallow: /reports-src/
+Disallow: /journey-site/
+
+Sitemap: https://rococo-crostata-3a82c5.netlify.app/sitemap.xml
