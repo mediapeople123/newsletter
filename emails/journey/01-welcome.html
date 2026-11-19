@@ -13,7 +13,9 @@
   @media (max-width: 620px) {
     .wrap { width:100% !important; }
     .pad { padding-left:22px !important; padding-right:22px !important; }
-    .h1 { font-size:36px !important; }
+    .h1 { font-size:44px !important; }
+    .tile { display:block !important; width:100% !important; padding:0 0 10px !important; }
+    .tilein { height:auto !important; }
     .stack { display:block !important; width:100% !important; padding:0 0 10px !important; }
     .hide-sm { display:none !important; }
   }
@@ -22,16 +24,25 @@
 <body style="margin:0; padding:0; background:#151515;">
 <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">Hey {$name}, you joined! Let's go! 🔥🚀 We're on a mission to explore new ways of reaching people with the Gospel in a digital world, and now you're part of it! &#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
 
+<!-- ============ BLOCK: hero ============ -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515;">
 <tr><td align="center" style="padding:0 8px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
-
-<!-- ============ BLOCK: hero ============ -->
-<tr><td class="pad" style="padding:72px 40px 64px; text-align:center;">
-  <h1 class="h1 display" style="margin:0; text-align:center; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:46px; line-height:1.06; font-weight:800; letter-spacing:-0.03em; color:#FFFFFF;"><span style="background:#FFC94D; color:#151515; padding:0 6px; -webkit-box-decoration-break:clone; box-decoration-break:clone; white-space:nowrap;">Welcome!</span></h1>
-  
+<tr><td align="center" class="pad" style="padding:40px 40px 0;">
+  <img src="https://raw.githubusercontent.com/mediapeople123/newsletter/b0c6c1c8c2d499bb11fb07a0dcafc135feeffb48/images/email/brand/wordmark-light.png" width="137" height="29" alt="Luca Caruso." style="display:block; border:0; margin:0 auto;">
 </td></tr>
-
+<tr><td align="center" class="pad" style="padding:64px 40px 20px; text-align:center;">
+  <p style="margin:0 0 18px; font-family:Inter, Arial, sans-serif; font-size:13px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFC94D;">The Journey &middot; Start here</p>
+  <h1 class="h1 display" style="margin:0; text-align:center; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:60px; line-height:1.12; font-weight:800; letter-spacing:-0.02em; color:#FFFFFF;"><span style="background:#FFC94D; color:#151515; padding:2px 12px; -webkit-box-decoration-break:clone; box-decoration-break:clone; white-space:nowrap;">Welcome!</span></h1>
+  <p style="margin:22px 0 0; font-family:Inter, Arial, sans-serif; font-size:18px; line-height:1.5; color:#d0d0d0;">You&rsquo;re in. Let&rsquo;s go. 🔥🚀</p>
+</td></tr>
+<tr><td align="center" style="padding:28px 0 52px;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="8" height="8" style="background:#FFC94D; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td><td width="10" style="font-size:0;">&nbsp;</td>
+    <td width="8" height="8" style="background:#5a5a5a; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td><td width="10" style="font-size:0;">&nbsp;</td>
+    <td width="8" height="8" style="background:#5a5a5a; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td>
+  </tr></table>
+</td></tr>
 </table>
 </td></tr>
 </table>
@@ -40,22 +51,59 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515;">
 <tr><td align="center" style="padding:0 8px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background:#FAF8F3; border-radius:20px;">
-<tr><td class="pad" style="padding:32px 40px 8px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
-<p style="margin:0 0 16px;">Hey {$name}, you joined! Let's go! 🔥🚀</p>
-<p style="margin:0 0 16px;">We're on a mission to explore new ways of reaching people with the Gospel in a digital world, and now you're part of it!</p>
-<p style="margin:0 0 16px;">I'll be sharing stories from the mission field, ideas we're experimenting with, things we're learning along the way, and opportunities to get involved.</p>
-<p style="margin:0 0 16px;">I believe we're only scratching the surface of what's possible. There's so much to discover, try and build together.</p>
+<tr><td class="pad" style="padding:44px 40px 8px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<p style="margin:0 0 16px; font-size:20px; line-height:1.5; font-weight:600; color:#151515;">Hey {$name}, you joined! Let&rsquo;s go! 🔥🚀</p>
+<p style="margin:0 0 16px;">We&rsquo;re on a mission to explore new ways of reaching people with the Gospel in a digital world, and <span style="font-weight:600; color:#151515; border-bottom:3px solid #FFC94D;">now you&rsquo;re part of it!</span></p>
 </td></tr>
-<tr><td class="pad" style="padding:12px 40px 8px;">
+<tr><td class="pad" style="padding:16px 40px 4px; font-family:Inter, Arial, sans-serif;">
+  <p style="margin:0 0 12px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#8A6100;">What I&rsquo;ll be sharing with you</p>
+</td></tr>
+<tr><td class="pad" style="padding:0 40px 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 5px 10px 0;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">01</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Stories from the mission field</p>
+      </td></tr></table>
+    </td>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 0 10px 5px;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">02</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Ideas we&rsquo;re experimenting with</p>
+      </td></tr></table>
+    </td>
+  </tr><tr>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 5px 0 0;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">03</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Things we&rsquo;re learning along the way</p>
+      </td></tr></table>
+    </td>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 0 0 5px;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">04</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Opportunities to get involved</p>
+      </td></tr></table>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td class="pad" style="padding:32px 40px 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="4" style="background:#FFC94D; border-radius:2px;">&nbsp;</td>
+    <td style="padding:2px 0 2px 20px;">
+      <p class="display" style="margin:0 0 10px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:24px; line-height:1.25; font-weight:800; letter-spacing:-0.01em; color:#151515;">I believe we&rsquo;re only scratching the surface of what&rsquo;s possible.</p>
+      <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.6; color:#3d3d3d;">There&rsquo;s so much to discover, try and build together.</p>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td class="pad" style="padding:32px 40px 8px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515; border-radius:16px;"><tr><td style="padding:24px 26px; font-family:Inter, Arial, sans-serif; font-size:16px; line-height:1.6; color:#d0d0d0;">
-    <p style="margin:0 0 8px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#FFC94D;">Coming up next</p>
-    <p style="margin:0;">In my next email, I'll share the story of my recent trip to America for Catalyze Lab, and the doors God is opening!</p>
+    <p style="margin:0 0 8px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#FFC94D;">Coming up next &middot; in 2 days</p>
+    <p style="margin:0;">In my next email, I&rsquo;ll share the story of my recent trip to America for Catalyze Lab, and the doors God is opening!</p>
   </td></tr></table>
 </td></tr>
-<tr><td class="pad" style="padding:28px 40px 0px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
-<p style="margin:0 0 0px;">Excited to have you here!</p>
-</td></tr>
-<tr><td class="pad" style="padding:16px 40px 44px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<tr><td class="pad" style="padding:32px 40px 44px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<p style="margin:0 0 16px;">Excited to have you here!</p>
 <p style="margin:0 0 4px;">Blessings,</p>
 <img src="https://raw.githubusercontent.com/mediapeople123/newsletter/b0c6c1c8c2d499bb11fb07a0dcafc135feeffb48/images/email/brand/signature.png" width="62" height="41" alt="Luca" style="display:block; border:0; margin:2px 0 0;">
 </td></tr>
