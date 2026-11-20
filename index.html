@@ -255,7 +255,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
       if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Please enter a valid email address.';return;}
       if(!f.consent.checked){err.textContent='Please tick the privacy box so I can email you.';return;}
       var btn=f.querySelector('button'); btn.disabled=true; var t=btn.textContent; btn.textContent='Sending...';
-      var d=new FormData(); d.append('fields[name]',name); d.append('fields[email]',email); d.append('ml-submit','1'); d.append('anticsrf','true');
+      var d=new FormData(); d.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();})); d.append('fields[email]',email); d.append('ml-submit','1'); d.append('anticsrf','true');
       fetch(URL,{method:'POST',body:d}).then(function(r){return r.json();}).then(function(j){
         if(j&&j.success){f.hidden=true; if(done) done.hidden=false;}
         else throw 0;
@@ -270,7 +270,7 @@ var YOUTH='https://assets.mailerlite.com/jsonp/1843925/forms/204423388199912799/
 document.querySelectorAll('.open-contact').forEach(function(b){b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');var n=d.querySelector('#c-name');if(n)n.focus();});});
 d.querySelector('.close-contact').addEventListener('click',function(){d.close();});
 d.addEventListener('click',function(e){if(e.target===d)d.close();});
-function ml(url,name,email,msg){var m=new FormData();m.append('fields[name]',name);m.append('fields[email]',email);if(msg)m.append('fields[message]',msg);m.append('ml-submit','1');m.append('anticsrf','true');
+function ml(url,name,email,msg){var m=new FormData();m.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();}));m.append('fields[email]',email);if(msg)m.append('fields[message]',msg);m.append('ml-submit','1');m.append('anticsrf','true');
 return fetch(url,{method:'POST',body:m}).then(function(r){return r.json();}).then(function(j){return !!(j&&j.success);}).catch(function(){return false;});}
 f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
 var name=f.name.value.trim(),email=f.email.value.trim(),msg=f.message.value.trim();

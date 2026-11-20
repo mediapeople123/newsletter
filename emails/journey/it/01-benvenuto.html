@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>Ci siamo!</title>
+<title>Benvenuto!</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
   body { margin:0; padding:0; }
@@ -13,7 +13,9 @@
   @media (max-width: 620px) {
     .wrap { width:100% !important; }
     .pad { padding-left:22px !important; padding-right:22px !important; }
-    .h1 { font-size:36px !important; }
+    .h1 { font-size:38px !important; }
+    .tile { display:block !important; width:100% !important; padding:0 0 10px !important; }
+    .tilein { height:auto !important; }
     .stack { display:block !important; width:100% !important; padding:0 0 10px !important; }
     .hide-sm { display:none !important; }
   }
@@ -22,16 +24,22 @@
 <body style="margin:0; padding:0; background:#151515;">
 <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">Ciao {$name}, sei dei nostri! Si parte! 🔥🚀 Siamo in missione per esplorare nuovi modi di raggiungere le persone con il Vangelo in un mondo digitale, e ora ne fai parte anche tu! &#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
 
+<!-- ============ BLOCK: hero ============ -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515;">
 <tr><td align="center" style="padding:0 8px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
-
-<!-- ============ BLOCK: hero ============ -->
-<tr><td class="pad" style="padding:24px 40px 0;">
-  <h1 class="h1 display" style="margin:0; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:46px; line-height:1.06; font-weight:800; letter-spacing:-0.03em; color:#FFFFFF;"><span style="background:#FFC94D; color:#151515; padding:0 6px; -webkit-box-decoration-break:clone; box-decoration-break:clone; white-space:nowrap;">Ci siamo!</span> 🔥🚀</h1>
-  
+<tr><td align="center" class="pad" style="padding:28px 40px 0;">
+  <img src="https://raw.githubusercontent.com/mediapeople123/newsletter/b0c6c1c8c2d499bb11fb07a0dcafc135feeffb48/images/email/brand/wordmark-light.png" width="110" height="23" alt="Luca Caruso." style="display:block; border:0; margin:0 auto;">
 </td></tr>
-
+<tr><td align="center" style="padding:26px 0 0;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td style="padding:0 12px 0 0; font-family:Inter, Arial, sans-serif; font-size:12px; line-height:1; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FFC94D; white-space:nowrap;">The Journey &middot; Inizia qui</td>
+    <td valign="middle"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="7" height="7" style="background:#FFC94D; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td><td width="6" style="font-size:0;">&nbsp;</td><td width="7" height="7" style="background:#5a5a5a; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td><td width="6" style="font-size:0;">&nbsp;</td><td width="7" height="7" style="background:#5a5a5a; border-radius:4px; font-size:0; line-height:0;">&nbsp;</td></tr></table></td>
+  </tr></table>
+</td></tr>
+<tr><td align="center" class="pad" style="padding:14px 40px 30px; text-align:center;">
+  <h1 class="h1 display" style="margin:0; text-align:center; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:44px; line-height:1.12; font-weight:800; letter-spacing:-0.02em; color:#FFFFFF;"><span style="background:#FFC94D; color:#151515; padding:2px 10px; -webkit-box-decoration-break:clone; box-decoration-break:clone; white-space:nowrap;">Benvenuto!</span></h1>
+</td></tr>
 </table>
 </td></tr>
 </table>
@@ -40,22 +48,59 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515;">
 <tr><td align="center" style="padding:0 8px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background:#FAF8F3; border-radius:20px;">
-<tr><td class="pad" style="padding:32px 40px 8px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
-<p style="margin:0 0 16px;">Ciao {$name}, sei dei nostri! Si parte! 🔥🚀</p>
-<p style="margin:0 0 16px;">Siamo in missione per esplorare nuovi modi di raggiungere le persone con il Vangelo in un mondo digitale, e ora ne fai parte anche tu!</p>
-<p style="margin:0 0 16px;">Condividerò storie dal campo di missione, idee che stiamo sperimentando, ciò che stiamo imparando lungo il cammino e nuove opportunità per coinvolgerti.</p>
-<p style="margin:0 0 16px;">Credo che abbiamo appena iniziato a scoprire ciò che è possibile. C’è così tanto da esplorare, sperimentare e costruire insieme.</p>
+<tr><td class="pad" style="padding:36px 40px 8px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<p style="margin:0 0 16px; font-size:20px; line-height:1.5; font-weight:600; color:#151515;">Ciao {$name}, sei dei nostri! Si parte! 🔥🚀</p>
+<p style="margin:0 0 16px;">Siamo in missione per esplorare nuovi modi di raggiungere le persone con il Vangelo in un mondo digitale, e <span style="font-weight:600; color:#151515; border-bottom:3px solid #FFC94D;">ora ne fai parte anche tu!</span></p>
 </td></tr>
-<tr><td class="pad" style="padding:12px 40px 8px;">
+<tr><td class="pad" style="padding:16px 40px 4px; font-family:Inter, Arial, sans-serif;">
+  <p style="margin:0 0 12px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#8A6100;">Cosa condividerò con te</p>
+</td></tr>
+<tr><td class="pad" style="padding:0 40px 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 5px 10px 0;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">01</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Storie dal campo di missione</p>
+      </td></tr></table>
+    </td>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 0 10px 5px;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">02</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Idee che stiamo sperimentando</p>
+      </td></tr></table>
+    </td>
+  </tr><tr>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 5px 0 0;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">03</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Ciò che stiamo imparando lungo il cammino</p>
+      </td></tr></table>
+    </td>
+    <td class="tile" width="50%" valign="top" height="100%" style="height:100%; padding:0 0 0 5px;">
+      <table role="presentation" width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" style="height:100%; background:#EFEBE3; border-radius:14px;"><tr><td class="tilein" valign="top" height="72" style="height:72px; padding:18px 18px 16px;">
+        <p class="display" style="margin:0 0 6px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:22px; line-height:1; font-weight:800; color:#8A6100;">04</p>
+        <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:15px; line-height:1.4; font-weight:600; color:#151515;">Nuove opportunità per coinvolgerti</p>
+      </td></tr></table>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td class="pad" style="padding:32px 40px 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="4" style="background:#FFC94D; border-radius:2px;">&nbsp;</td>
+    <td style="padding:2px 0 2px 20px;">
+      <p class="display" style="margin:0 0 10px; font-family:'Bricolage Grotesque', 'Arial Black', Arial, sans-serif; font-size:24px; line-height:1.25; font-weight:800; letter-spacing:-0.01em; color:#151515;">Credo che abbiamo appena iniziato a scoprire ciò che è possibile.</p>
+      <p style="margin:0; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.6; color:#3d3d3d;">C&rsquo;è così tanto da esplorare, sperimentare e costruire insieme.</p>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td class="pad" style="padding:32px 40px 8px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#151515; border-radius:16px;"><tr><td style="padding:24px 26px; font-family:Inter, Arial, sans-serif; font-size:16px; line-height:1.6; color:#d0d0d0;">
-    <p style="margin:0 0 8px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#FFC94D;">Prossimamente</p>
+    <p style="margin:0 0 8px; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#FFC94D;">Prossimamente &middot; tra 2 giorni</p>
     <p style="margin:0;">Nella prossima email ti racconterò del mio recente viaggio in America per Catalyze Lab e delle porte che Dio sta aprendo!</p>
   </td></tr></table>
 </td></tr>
-<tr><td class="pad" style="padding:28px 40px 0px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
-<p style="margin:0 0 0px;">Sono felice di averti qui!</p>
-</td></tr>
-<tr><td class="pad" style="padding:16px 40px 44px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<tr><td class="pad" style="padding:32px 40px 44px; font-family:Inter, Arial, sans-serif; font-size:17px; line-height:1.65; color:#3d3d3d;">
+<p style="margin:0 0 4px;">Sono felice di averti qui!</p>
 <img src="https://raw.githubusercontent.com/mediapeople123/newsletter/b0c6c1c8c2d499bb11fb07a0dcafc135feeffb48/images/email/brand/signature.png" width="62" height="41" alt="Luca" style="display:block; border:0; margin:2px 0 0;">
 </td></tr>
 </table>
@@ -73,7 +118,7 @@
 <tr><td align="center" class="pad" style="padding:16px 40px 40px; font-family:Inter, Arial, sans-serif; font-size:12px; line-height:1.6; color:#8a8a8a;">
   <a href="https://www.instagram.com/lucaa_carusoo" target="_blank" style="color:#d0d0d0; text-decoration:underline;">Instagram</a> &nbsp;&middot;&nbsp; <a href="https://luca.mediapeople.no/it/" target="_blank" style="color:#d0d0d0; text-decoration:underline;">Sito web</a><br>
   Luca Caruso &middot; Mauritz Hansens gate 4A, Oslo, Norvegia<br>
-  <a href="{$unsubscribe}" style="color:#8a8a8a; text-decoration:underline;">Annulla l’iscrizione</a>
+  <a href="{$unsubscribe}" style="color:#8a8a8a; text-decoration:underline;">Annulla l&rsquo;iscrizione</a>
 </td></tr>
 </table>
 </td></tr>
