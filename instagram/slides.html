@@ -2,54 +2,50 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@500;600&family=Caveat:wght@600&display=swap">
 <style>
-:root{--bg:#151515;--y:#FFC94D;--text:#f2f2f2}
+:root{--bg:#151515;--y:#FFC94D}
 *{box-sizing:border-box}
 body{margin:0;background:#000;display:flex;flex-direction:column;gap:40px;padding:40px;align-items:flex-start}
-.slide{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
-.slide img{display:block;width:100%;height:100%;object-fit:cover}
-.shade{position:absolute;inset:0}
-.h{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.06;margin:0;color:#fff}
+/* 3:4 like the original posts */
+.slide{position:relative;width:1080px;height:1440px;overflow:hidden;background:var(--bg);color:#fff;font-family:Inter,sans-serif}
+/* a frame shows the whole photo (contain); any gap is filled with a blurred copy */
+.frame{position:absolute;left:0;width:100%;overflow:hidden;background:var(--bg)}
+.frame .blur{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(40px) brightness(.55)}
+.frame .full{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.h{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0;color:#fff;text-align:center}
 .hl{background:var(--y);color:#151515;padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.kicker{margin:0;font:600 26px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--y)}
-.body{margin:0;font:500 40px/1.35 Inter,sans-serif;color:#e6e6e6}
+.box{background:#151515e0;padding:.06em .3em;line-height:1.5;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:8px}
+.kicker{margin:0;font:600 22px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--y);text-align:center}
+.body{margin:0;font:500 30px/1.5 Inter,sans-serif;color:#fff;text-align:center}
 .hand{font-family:Caveat,cursive;font-weight:600;color:#fff}
-.brand{position:absolute;font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;font-size:30px;letter-spacing:-.01em;color:#fff}
-.swipe{position:absolute;right:64px;bottom:60px;font-family:Caveat,cursive;font-size:44px;color:#fff;transform:rotate(-3deg)}
+.text{position:absolute;left:90px;right:90px;display:flex;flex-direction:column;gap:18px;align-items:center}
 </style></head><body>
 
-<!-- SLIDE 1: hook -->
+<!-- SLIDE 1: hook (whole photo) -->
 <div class="slide" id="s1">
-  <img src="../images/hero-luca.jpg" style="object-position:50% 30%">
-  <div class="shade" style="background:linear-gradient(180deg,#0000 0%,#0000 48%,#151515d9 74%,#151515 100%)"></div>
-  <div class="brand" style="left:64px;top:56px">Luca Caruso.</div>
-  <div style="position:absolute;left:64px;right:64px;bottom:150px">
-    <h1 class="h" style="font-size:96px">I&rsquo;ve been carrying this in my heart <span class="hl">for years&hellip;</span></h1>
+  <div class="frame" style="top:0;height:1440px"><img class="blur" src="../images/hero-luca.jpg"><img class="full" src="../images/hero-luca.jpg"></div>
+  <div class="text" style="top:1000px">
+    <h1 class="h" style="font-size:56px"><span class="box">I&rsquo;ve been carrying this in my heart</span><br><span class="hl">for years&hellip;</span></h1>
   </div>
-  <div class="swipe">swipe &rarr;</div>
 </div>
 
-<!-- SLIDE 2: 2012 mission trip -->
+<!-- SLIDE 2: 2012 mission trip (both photos whole) -->
 <div class="slide" id="s2">
-  <div style="position:absolute;left:0;top:0;width:100%;height:640px"><img src="../images/luca-2012.jpg" style="object-position:50% 72%"></div>
-  <div style="position:absolute;left:0;top:640px;width:100%;height:710px"><img src="../images/tour-giallo-2012.jpg" style="object-position:55% 60%"></div>
-  <div class="shade" style="background:linear-gradient(180deg,#0000 0%,#0000 52%,#151515cc 72%,#151515 100%)"></div>
-  <div style="position:absolute;left:0;right:0;top:636px;height:8px;background:#151515"></div>
-  <!-- handwritten label + arrow pointing to young Luca -->
-  <div class="hand" style="position:absolute;left:70px;top:520px;font-size:54px;transform:rotate(-6deg)">me, age 16</div>
-  <svg style="position:absolute;left:150px;top:380px" width="200" height="140" viewBox="0 0 200 140" fill="none"><path d="M10 130 C 30 70, 90 40, 170 30" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M140 12 L172 30 L146 56" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <div style="position:absolute;left:64px;right:64px;bottom:90px;display:flex;flex-direction:column;gap:26px">
-    <h2 class="h" style="font-size:78px">In 2012 I joined my <span class="hl">first mission trip.</span></h2>
-    <p class="body">And got a burden to see people experience Jesus.</p>
+  <div class="frame" style="top:0;height:736px"><img class="blur" src="../images/luca-2012.jpg"><img class="full" src="../images/luca-2012.jpg"></div>
+  <div class="frame" style="top:740px;height:700px"><img class="blur" src="../images/tour-giallo-2012.jpg"><img class="full" src="../images/tour-giallo-2012.jpg"></div>
+  <div class="hand" style="position:absolute;left:96px;top:600px;font-size:44px;transform:rotate(-6deg)">me, age 16</div>
+  <svg style="position:absolute;left:170px;top:480px" width="150" height="110" viewBox="0 0 150 110" fill="none"><path d="M8 100 C 24 54, 66 30, 128 22" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M104 6 L130 22 L108 44" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="text" style="top:1010px">
+    <h2 class="h" style="font-size:48px"><span class="box">In 2012 I joined my</span> <span class="hl">first mission trip.</span></h2>
+    <p class="body"><span class="box">And got a burden to see people experience Jesus.</span></p>
   </div>
 </div>
 
-<!-- SLIDE 3: Jesus Revolution -->
+<!-- SLIDE 3: Jesus Revolution (whole photo) -->
 <div class="slide" id="s3">
-  <img src="../images/jesus-revolution.jpg" style="object-position:50% 60%">
-  <div class="shade" style="background:linear-gradient(180deg,#151515 0%,#151515e6 22%,#15151566 42%,#0000 58%)"></div>
-  <div style="position:absolute;left:64px;right:64px;top:80px;display:flex;flex-direction:column;gap:26px">
+  <div class="frame" style="top:0;height:1440px"><img class="blur" src="../images/jesus-revolution.jpg"><img class="full" src="../images/jesus-revolution.jpg" style="object-position:50% 100%"></div>
+  <div class="text" style="top:110px">
     <p class="kicker">2018&ndash;2025</p>
-    <h2 class="h" style="font-size:78px">I joined Jesus Revolution as the <span class="hl">media leader.</span></h2>
+    <h2 class="h" style="font-size:48px">I joined Jesus Revolution as the<br><span class="hl">media leader.</span></h2>
     <p class="body">Finding new ways to reach this generation with the Gospel through media.</p>
   </div>
 </div>
