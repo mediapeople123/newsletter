@@ -255,7 +255,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
       if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Inserisci un indirizzo email valido.';return;}
       if(!f.consent.checked){err.textContent='Spunta la casella della privacy così posso scriverti.';return;}
       var btn=f.querySelector('button'); btn.disabled=true; var t=btn.textContent; btn.textContent='Invio in corso...';
-      var d=new FormData(); d.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();})); d.append('fields[email]',email); d.append('ml-submit','1'); d.append('anticsrf','true');
+      var d=new FormData(); d.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();}));if(String(name).trim().split(/\s+/).slice(1).join(' '))d.append('fields[last_name]',String(name).trim().split(/\s+/).slice(1).join(' ')); d.append('fields[email]',email); d.append('ml-submit','1'); d.append('anticsrf','true');
       fetch(URL,{method:'POST',body:d}).then(function(r){return r.json();}).then(function(j){
         if(j&&j.success){f.hidden=true; if(done) done.hidden=false;}
         else throw 0;
@@ -270,7 +270,7 @@ var YOUTH='https://assets.mailerlite.com/jsonp/1843925/forms/204423398013535795/
 document.querySelectorAll('.open-contact').forEach(function(b){b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');var n=d.querySelector('#c-name');if(n)n.focus();});});
 d.querySelector('.close-contact').addEventListener('click',function(){d.close();});
 d.addEventListener('click',function(e){if(e.target===d)d.close();});
-function ml(url,name,email,msg){var m=new FormData();m.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();}));m.append('fields[email]',email);if(msg)m.append('fields[message]',msg);m.append('ml-submit','1');m.append('anticsrf','true');
+function ml(url,name,email,msg){var m=new FormData();m.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();}));if(String(name).trim().split(/\s+/).slice(1).join(' '))m.append('fields[last_name]',String(name).trim().split(/\s+/).slice(1).join(' '));m.append('fields[email]',email);if(msg)m.append('fields[message]',msg);m.append('ml-submit','1');m.append('anticsrf','true');
 return fetch(url,{method:'POST',body:m}).then(function(r){return r.json();}).then(function(j){return !!(j&&j.success);}).catch(function(){return false;});}
 f.addEventListener('submit',function(e){e.preventDefault();err.textContent='';
 var name=f.name.value.trim(),email=f.email.value.trim(),msg=f.message.value.trim();
