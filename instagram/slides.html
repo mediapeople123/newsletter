@@ -2,88 +2,110 @@
 <html><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@500;600&family=Caveat:wght@600&display=swap">
 <style>
-:root{--bg:#151515;--y:#FFC94D}
+:root{--bg:#151515;--y:#FFC94D;--body:#d0d0d0;--muted:#9a9a9a}
 *{box-sizing:border-box}
 body{margin:0;background:#000;display:flex;flex-direction:column;gap:40px;padding:40px;align-items:flex-start}
-/* 3:4 like the original posts */
-.slide{position:relative;width:1080px;height:1440px;overflow:hidden;background:var(--bg);color:#fff;font-family:Inter,sans-serif}
-/* a frame shows the whole photo (contain); any gap is filled with a blurred copy */
-.frame{position:absolute;left:0;width:100%;overflow:hidden;background:var(--bg)}
-.frame .blur{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(40px) brightness(.55)}
-.frame .full{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.h{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0;color:#fff;text-align:center}
+/* 3:4, like the original posts */
+.slide{position:relative;width:1080px;height:1440px;overflow:hidden;color:#fff;font-family:Inter,sans-serif;
+  background:radial-gradient(120% 70% at 50% 0%,#232323 0%,#151515 60%)}
+.brand{position:absolute;left:64px;top:56px;font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;font-size:28px;letter-spacing:-.01em}
+.count{position:absolute;right:64px;top:62px;font:600 20px Inter,sans-serif;letter-spacing:.08em;color:var(--muted)}
+.bars{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center;gap:10px}
+.bars i{display:block;width:44px;height:6px;border-radius:3px;background:#3a3a3a}
+.bars i.on{background:var(--y)}
+.text{position:absolute;left:80px;right:80px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.kicker{margin:0;font:600 22px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--y)}
+.h{margin:0;font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-size:56px}
 .hl{background:var(--y);color:#151515;padding:0 .12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.box{background:#151515e0;padding:.06em .3em;line-height:1.5;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:8px}
-.kicker{margin:0;font:600 22px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--y);text-align:center}
-.body{margin:0;font:500 30px/1.5 Inter,sans-serif;color:#fff;text-align:center}
-.hand{font-family:Caveat,cursive;font-weight:600;color:#fff}
-.text{position:absolute;left:90px;right:90px;display:flex;flex-direction:column;gap:18px;align-items:center}
+.body{margin:0;font:500 30px/1.45 Inter,sans-serif;color:var(--body);max-width:860px}
+/* photo cards: whole photo, never cropped */
+.card{position:absolute;padding:12px 12px 14px;background:#f4f1ea;border-radius:24px;box-shadow:0 24px 60px #00000099}
+.card img{display:block;height:auto;border-radius:14px}
+.pill{position:absolute;left:26px;bottom:28px;padding:6px 14px;border-radius:999px;background:#000000b3;color:#fff;font:500 18px Inter,sans-serif}
+.hand{position:absolute;font-family:Caveat,cursive;font-weight:600;color:#fff}
 </style></head><body>
 
-<!-- SLIDE 1: hook (whole photo) -->
+<!-- 1 · HOOK -->
 <div class="slide" id="s1">
-  <div class="frame" style="top:0;height:1440px"><img class="blur" src="../images/hero-luca.jpg"><img class="full" src="../images/hero-luca.jpg"></div>
-  <div class="text" style="top:1000px">
-    <h1 class="h" style="font-size:56px"><span class="box">I&rsquo;ve been carrying this in my heart</span><br><span class="hl">for years&hellip;</span></h1>
+  <div class="brand">Luca Caruso.</div><div class="count">01 / 06</div>
+  <div class="card" style="left:228px;top:150px;transform:rotate(-3deg)"><img src="../images/hero-luca.jpg" style="width:600px"></div>
+  <div class="text" style="top:1130px">
+    <h1 class="h" style="font-size:64px">I&rsquo;ve been carrying this in my heart <span class="hl">for years&hellip;</span></h1>
   </div>
+  <div class="hand" style="right:64px;bottom:80px;font-size:40px;transform:rotate(-4deg)">swipe &rarr;</div>
+  <div class="bars"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
 </div>
 
-<!-- SLIDE 2: 2012 mission trip (both photos whole) -->
+<!-- 2 · 2012 -->
 <div class="slide" id="s2">
-  <div class="frame" style="top:0;height:736px"><img class="blur" src="../images/luca-2012.jpg"><img class="full" src="../images/luca-2012.jpg"></div>
-  <div class="frame" style="top:740px;height:700px"><img class="blur" src="../images/tour-giallo-2012.jpg"><img class="full" src="../images/tour-giallo-2012.jpg"></div>
-  <div class="hand" style="position:absolute;left:96px;top:600px;font-size:44px;transform:rotate(-6deg)">me, age 16</div>
-  <svg style="position:absolute;left:170px;top:480px" width="150" height="110" viewBox="0 0 150 110" fill="none"><path d="M8 100 C 24 54, 66 30, 128 22" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M104 6 L130 22 L108 44" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <div class="text" style="top:1010px">
-    <h2 class="h" style="font-size:48px"><span class="box">In 2012 I joined my</span> <span class="hl">first mission trip.</span></h2>
-    <p class="body"><span class="box">And got a burden to see people experience Jesus.</span></p>
+  <div class="brand">Luca Caruso.</div><div class="count">02 / 06</div>
+  <div class="text" style="top:150px">
+    <p class="kicker">2012</p>
+    <h2 class="h">In 2012 I joined my <span class="hl">first mission trip.</span></h2>
+    <p class="body">And got a burden to see people experience Jesus.</p>
   </div>
+  <div class="card" style="left:80px;top:440px;transform:rotate(-4deg)"><img src="../images/luca-2012.jpg" style="width:400px"></div>
+  <div class="card" style="left:440px;top:910px;transform:rotate(3deg)"><img src="../images/tour-giallo-2012.jpg" style="width:560px"><span class="pill">2012 &middot; Mission</span></div>
+  <div class="hand" style="left:620px;top:540px;font-size:46px;transform:rotate(-6deg)">me, age 16</div>
+  <svg style="position:absolute;left:530px;top:600px" width="140" height="110" viewBox="0 0 140 110" fill="none"><path d="M118 10 C 90 30, 60 60, 22 86" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M26 58 L20 88 L50 92" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="bars"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
 </div>
 
-<!-- SLIDE 3: Jesus Revolution (whole photo) -->
+<!-- 3 · JESUS REVOLUTION -->
 <div class="slide" id="s3">
-  <div class="frame" style="top:0;height:1440px"><img class="blur" src="../images/jesus-revolution.jpg"><img class="full" src="../images/jesus-revolution.jpg" style="object-position:50% 100%"></div>
-  <div class="text" style="top:110px">
+  <div class="brand">Luca Caruso.</div><div class="count">03 / 06</div>
+  <div class="text" style="top:150px">
     <p class="kicker">2018&ndash;2025</p>
-    <h2 class="h" style="font-size:48px">I joined Jesus Revolution as the<br><span class="hl">media leader.</span></h2>
+    <h2 class="h">I joined Jesus Revolution as the <span class="hl">media leader.</span></h2>
     <p class="body">Finding new ways to reach this generation with the Gospel through media.</p>
   </div>
+  <div class="card" style="left:192px;top:500px;transform:rotate(2deg)"><img src="../images/jesus-revolution.jpg" style="width:672px"><span class="pill">Jesus Revolution</span></div>
+  <div class="bars"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
 </div>
 
-<!-- SLIDE 4: back to Italy + Catalyze Lab (both photos whole) -->
+<!-- 4 · BACK TO ITALY / CATALYZE LAB -->
 <div class="slide" id="s4">
-  <div class="frame" style="top:0;height:716px"><img class="blur" src="../images/catalyze-JAY_2170.jpg"><img class="full" src="../images/catalyze-JAY_2170.jpg"></div>
-  <div class="frame" style="top:720px;height:720px"><img class="blur" src="../images/catalyze-JAY_2199.jpg"><img class="full" src="../images/catalyze-JAY_2199.jpg"></div>
-  <div class="text" style="top:330px">
-    <p class="kicker"><span class="box" style="font-size:22px">2025&ndash;26</span></p>
-    <h2 class="h" style="font-size:48px"><span class="box">Moving back to Italy,</span><br><span class="hl">new doors started opening.</span></h2>
+  <div class="brand">Luca Caruso.</div><div class="count">04 / 06</div>
+  <div class="text" style="top:150px">
+    <p class="kicker">2025&ndash;26</p>
+    <h2 class="h">Moving back to Italy, <span class="hl">new doors started opening.</span></h2>
+    <p class="body">I was selected as one of 11 initiatives for OneHope&rsquo;s Catalyze Lab in the US.</p>
   </div>
-  <div class="text" style="top:660px">
-    <p class="body" style="font-size:32px;font-weight:600"><span class="box">I was selected as one of 11 initiatives for OneHope&rsquo;s Catalyze Lab in the US.</span></p>
-  </div>
+  <div class="card" style="left:90px;top:500px;transform:rotate(-3deg)"><img src="../images/catalyze-JAY_2170.jpg" style="width:400px"></div>
+  <div class="card" style="left:430px;top:900px;transform:rotate(3deg)"><img src="../images/catalyze-JAY_2199.jpg" style="width:570px"><span class="pill">Catalyze Lab &middot; Nashville</span></div>
+  <div class="bars"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
 </div>
 
-<!-- SLIDE 5: Yous Conference (four photos whole) -->
+<!-- 5 · YOUS CONFERENCE -->
 <div class="slide" id="s5">
-  <div class="frame" style="top:0;left:0;width:538px;height:718px"><img class="blur" src="../images/yous-0.jpg"><img class="full" src="../images/yous-0.jpg"></div>
-  <div class="frame" style="top:0;left:542px;width:538px;height:718px"><img class="blur" src="../images/yous-3.jpg"><img class="full" src="../images/yous-3.jpg"></div>
-  <div class="frame" style="top:722px;left:0;width:538px;height:718px"><img class="blur" src="../images/yous-7.jpg"><img class="full" src="../images/yous-7.jpg"></div>
-  <div class="frame" style="top:722px;left:542px;width:538px;height:718px"><img class="blur" src="../images/yous-1.jpg"><img class="full" src="../images/yous-1.jpg"></div>
-  <div class="text" style="top:600px">
-    <h2 class="h" style="font-size:44px"><span class="box">On October 31st, we helped</span><br><span class="hl">316 young people share their faith online,</span><br><span class="box">many for the first time.</span></h2>
-    <p class="body"><span class="box">I believe we&rsquo;re just scratching the surface of what&rsquo;s possible with digital evangelism.</span></p>
+  <div class="brand">Luca Caruso.</div><div class="count">05 / 06</div>
+  <div class="text" style="top:140px;gap:6px">
+    <p class="kicker">On October 31st</p>
+    <p class="h" style="font-size:200px;line-height:1;color:var(--y);letter-spacing:-.04em">316</p>
+    <h2 class="h" style="font-size:48px">young people shared their faith online, <span class="hl">many for the first time.</span></h2>
   </div>
+  <div class="card" style="left:40px;top:640px;transform:rotate(-4deg)"><img src="../images/yous-0.jpg" style="width:226px"></div>
+  <div class="card" style="left:290px;top:680px;transform:rotate(2deg)"><img src="../images/yous-3.jpg" style="width:226px"></div>
+  <div class="card" style="left:540px;top:650px;transform:rotate(-2deg)"><img src="../images/yous-7.jpg" style="width:226px"></div>
+  <div class="card" style="left:790px;top:690px;transform:rotate(4deg)"><img src="../images/yous-1.jpg" style="width:226px"></div>
+  <div class="text" style="top:1200px">
+    <p class="body">I believe we&rsquo;re just scratching the surface of what&rsquo;s possible with <strong style="color:#fff">digital evangelism.</strong></p>
+  </div>
+  <div class="bars"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div>
 </div>
 
-<!-- SLIDE 6: CTA (whole photo, already 3:4) -->
+<!-- 6 · CTA -->
 <div class="slide" id="s6">
-  <div class="frame" style="top:0;height:1440px"><img class="blur" src="../images/nashville-2026.jpg"><img class="full" src="../images/nashville-2026.jpg"></div>
-  <div class="text" style="top:250px">
-    <p class="body" style="font-size:34px;font-weight:600"><span class="box">Over the next months, I&rsquo;ll be sharing what we&rsquo;re building, what we&rsquo;re learning, the stories, challenges and everything God is doing.</span></p>
+  <div class="brand">Luca Caruso.</div><div class="count">06 / 06</div>
+  <div class="text" style="top:140px">
+    <p class="body">Over the next months, I&rsquo;ll be sharing what we&rsquo;re building, what we&rsquo;re learning, the stories, challenges and everything God is doing.</p>
   </div>
-  <div class="text" style="top:1070px">
-    <h2 class="h" style="font-size:52px"><span class="hl">Drop the email in description</span><br><span class="hl">to join the journey!</span></h2>
+  <div class="card" style="left:258px;top:350px;transform:rotate(-2deg)"><img src="../images/nashville-2026.jpg" style="width:540px"></div>
+  <div class="text" style="top:1150px;gap:14px">
+    <h2 class="h" style="font-size:72px">Comment <span class="hl">&ldquo;MEDIA&rdquo;</span></h2>
+    <p class="body" style="color:#fff">and I&rsquo;ll send you the link to join the journey.</p>
   </div>
+  <div class="bars"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
 </div>
 
 </body></html>
