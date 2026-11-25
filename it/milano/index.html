@@ -36,13 +36,12 @@ button:disabled{opacity:.7;cursor:default}
 <div class="wrap">
   <a class="brand" href="/it/">Luca Caruso.</a>
   <div class="card">
-    <form name="uscite-milano" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="uscite-milano">
-      <p hidden><label>Lascia vuoto <input name="bot-field"></label></p>
+    <form name="uscite-milano" novalidate>
       <h1>Usciamo a parlare di Gesù <span>a Milano.</span></h1>
       <p class="lead">Lasciaci il tuo numero WhatsApp: ti avviseremo della prossima uscita.</p>
       <input type="hidden" name="nome" value="">
-      <input type="hidden" name="email" value="">
+      <div class="email-row" hidden><label for="email">La tua email</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="nome@email.com"></div>
       <label for="whatsapp">Il tuo numero WhatsApp</label>
       <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39 ..." required>
       <p class="err" role="alert"></p>
@@ -57,14 +56,17 @@ button:disabled{opacity:.7;cursor:default}
   </div>
 </div>
 <script>
-(function(){var f=document.querySelector('form'),e=f.querySelector('.err'),d=document.querySelector('.done');
-try{var q=new URLSearchParams(location.search),em=(q.get('e')||'').replace(/ /g,'+'),nm=q.get('n')||'';if(em.indexOf('{')<0)f.email.value=em;if(nm.indexOf('{')<0)f.nome.value=nm;}catch(x){}
+(function(){var f=document.querySelector('form'),e=f.querySelector('.err'),d=document.querySelector('.done'),em='',nm='';
+try{var q=new URLSearchParams(location.search);em=(q.get('e')||'').replace(/ /g,'+');nm=q.get('n')||'';if(em.indexOf('{')>=0||em.indexOf('@')<0)em='';if(nm.indexOf('{')>=0)nm='';}catch(x){}
+if(!em)f.querySelector('.email-row').hidden=false;
 f.addEventListener('submit',function(ev){ev.preventDefault();e.textContent='';
-var w=f.whatsapp.value.trim();
+var w=f.whatsapp.value.trim(),mail=em||f.email.value.trim();
 if(w.replace(/\D/g,'').length<8){e.textContent='Inserisci un numero WhatsApp valido.';return;}
+if(!/^\S+@\S+\.\S+$/.test(mail)){e.textContent='Inserisci un indirizzo email valido.';return;}
 var b=f.querySelector('button');b.disabled=true;b.textContent='Invio in corso...';
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-.then(function(r){if(!r.ok)throw 0;f.hidden=true;d.hidden=false;})
+var m=new FormData();m.append('fields[email]',mail);m.append('fields[phone]',w);if(nm)m.append('fields[name]',nm);m.append('ml-submit','1');m.append('anticsrf','true');
+fetch('https://assets.mailerlite.com/jsonp/1843925/forms/204423394524923194/subscribe',{method:'POST',body:m}).then(function(r){return r.json();})
+.then(function(j){if(!(j&&j.success))throw 0;f.hidden=true;d.hidden=false;})
 .catch(function(){e.textContent='Qualcosa è andato storto. Riprova tra un momento.';b.disabled=false;b.textContent='Avvisami della prossima uscita';});});})();
 </script>
 </body>
