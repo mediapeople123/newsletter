@@ -253,6 +253,31 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
   </footer>
 </div>
 <script>
+window.waOffer=function(after,name,email){
+  if(!after||document.querySelector('.wa-offer'))return;
+  var b=document.createElement('div');b.className='wa-offer';
+  b.style.cssText='margin-top:16px;padding:24px;border-radius:16px;background:var(--surface);border:1px solid var(--line2);font-family:Inter,sans-serif';
+  b.innerHTML='<p style="margin:0 0 14px;font-size:17px;line-height:1.5;color:var(--text)"><span style="font-weight:600">Sei di Milano o dintorni?</span> Ti piacerebbe unirti a noi la prossima volta che usciamo a parlare di Gesù? Lasciaci il tuo numero WhatsApp e ti avviseremo.</p>'+
+  '<form novalidate style="display:flex;flex-wrap:wrap;gap:10px"><label class="sr" for="wa-num">Numero WhatsApp</label>'+
+  '<input id="wa-num" type="tel" inputmode="tel" autocomplete="tel" placeholder="+39 ..." style="flex:1 1 180px;height:52px;box-sizing:border-box;padding:0 16px;border-radius:10px;border:1px solid #3a3a3a;background:#fff;color:#151515;font:17px Inter,sans-serif">'+
+  '<button type="submit" style="flex:0 0 auto;height:52px;padding:0 22px;border:0;border-radius:10px;background:#FFC94D;color:#151515;font:600 17px Inter,sans-serif;cursor:pointer">Avvisami</button>'+
+  '<p class="wa-err" role="alert" style="flex:1 1 100%;margin:0;font-size:14px;color:#ffb4a8"></p>'+
+  '<p style="flex:1 1 100%;margin:0;font-size:13px;color:var(--muted2)">Inviando il numero accetti di essere contattato su WhatsApp per le prossime uscite.</p></form>'+
+  '<p class="wa-done" hidden style="margin:0;font-size:17px;font-weight:600;color:var(--text)">Grazie! Ti scriveremo su WhatsApp per la prossima uscita a Milano. 🙌</p>';
+  after.insertAdjacentElement('afterend',b);
+  var f=b.querySelector('form'),e=b.querySelector('.wa-err');
+  f.addEventListener('submit',function(ev){ev.preventDefault();e.textContent='';
+    var w=b.querySelector('#wa-num').value.trim();
+    if(w.replace(/\D/g,'').length<8){e.textContent='Inserisci un numero WhatsApp valido.';return;}
+    var btn=f.querySelector('button');btn.disabled=true;btn.textContent='Invio...';
+    var body=new URLSearchParams({'form-name':'uscite-milano','nome':name||'','email':email||'','whatsapp':w}).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+    .then(function(r){if(!r.ok)throw 0;f.hidden=true;b.querySelector('.wa-done').hidden=false;})
+    .catch(function(){e.textContent='Qualcosa è andato storto. Riprova tra un momento.';btn.disabled=false;btn.textContent='Avvisami';});
+  });
+};
+</script>
+<script>
 (function(){
   var URL='https://assets.mailerlite.com/jsonp/1843925/forms/204423394524923194/subscribe';
   document.querySelectorAll('.ml-form').forEach(function(f){
@@ -266,7 +291,7 @@ html[data-theme="light"] .ml-error{color:#b3261e!important}
       var btn=f.querySelector('button'); btn.disabled=true; var t=btn.textContent; btn.textContent='Invio in corso...';
       var d=new FormData(); d.append('fields[name]',String(name).trim().split(/\s+/)[0].replace(/^./,function(c){return c.toUpperCase();}));if(String(name).trim().split(/\s+/).slice(1).join(' '))d.append('fields[last_name]',String(name).trim().split(/\s+/).slice(1).join(' ')); d.append('fields[email]',email); d.append('ml-submit','1'); d.append('anticsrf','true');
       fetch(URL,{method:'POST',body:d}).then(function(r){return r.json();}).then(function(j){
-        if(j&&j.success){f.hidden=true; if(done) done.hidden=false;}
+        if(j&&j.success){f.hidden=true; if(done) done.hidden=false; if(window.waOffer) waOffer(done,name,email);}
         else throw 0;
       }).catch(function(){err.textContent='Qualcosa è andato storto. Riprova tra un momento.';btn.disabled=false;btn.textContent=t;});
     });
